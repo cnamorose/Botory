@@ -21,7 +21,7 @@ and is intended for **local execution only**.
 ### Login Page and Book Search, Reading Log
 
 <p align="center">
-  <img src="src/main/resources/static/images/image1.png" width="45%" />
+  <img src="src/main/resources/static/images/image4.png" width="45%" />
   <img src="src/main/resources/static/images/image2.png" width="45%" />
   <img src="src/main/resources/static/images/image3.png" width="45%" />
 </p>
