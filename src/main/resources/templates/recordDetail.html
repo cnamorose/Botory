@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>독후감 상세</title>
+</head>
+<body>
+<h1 th:text="${record.title}">제목</h1>
+<img th:src="${record.thumbnail}" alt="책표지" style="width:150px;"><br>
+<p><strong>저자:</strong> <span th:text="${record.author}"></span></p>
+<p><strong>출판사:</strong> <span th:text="${record.publisher}"></span></p>
+<p><strong>카테고리:</strong> <span th:text="${record.category}"></span></p>
+<p><strong>내용 요약:</strong></p>
+<p th:text="${record.content}"></p>
+<p><strong>느낀점:</strong></p>
+<p th:text="${record.feeling}"></p>
+<p><strong>평점:</strong> <span th:text="${record.rating}"></span>/5</p>
+
+<br>
+<a href="/records">← Back</a>
+</body>
+</html>
+

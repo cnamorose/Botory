@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>독후감 작성</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+        }
+
+        .header {
+            background-color: #b8aa93;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            padding-left: 30px;
+            font-size: 30px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 30px 40px;
+        }
+
+        .form-wrapper, .search-wrapper {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            padding: 20px;
+            width: 450px;
+            max-height: 700px;
+            overflow-y: auto;
+        }
+
+        .form-wrapper h2, .search-wrapper h2 {
+            text-align: center;
+        }
+
+        form p {
+            margin-bottom: 15px;
+        }
+
+        input[type="text"], input[type="number"], textarea {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #f0a54f;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .search-result {
+            border: 1px solid #ccc;
+            padding: 12px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            background-color: #fff;
+            cursor: pointer;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">BoTory</div>
+
+<div class="container">
+
+    <div class="form-wrapper">
+        <h2>독후감 작성</h2>
+        <form th:action="@{/records}" method="post">
+            <p>책 제목: <input type="text" name="title" id="bookTitle" required /></p>
+            <input type="hidden" name="thumbnail" id="bookThumbnail" />
+            <p>저자: <input type="text" name="author" id="bookAuthor" required /></p>
+            <p>출판사: <input type="text" name="publisher" id="bookPublisher" /></p>
+            <p>카테고리: <input type="text" name="category" /></p>
+            <p>책 내용: <textarea name="content"></textarea></p>
+            <p>느낀점: <textarea name="feeling"></textarea></p>
+            <p>평점: <input type="number" name="rating" min="1" max="5" /></p>
+            <button type="submit">저장</button>
+        </form>
+        <a href="/records">← 책장 보기</a>
+    </div>
+
+    <div class="search-wrapper">
+        <h2>책 검색</h2>
+        <form onsubmit="searchBook(); return false;">
+            <input type="text" id="bookQuery" placeholder="도서 검색" />
+            <button type="submit">검색</button>
+        </form>
+
+        <div id="results"></div>
+    </div>
+</div>
+
+<script>
+    function searchBook() {
+        const query = document.getElementById('bookQuery').value;
+        fetch(`/api/books?query=${encodeURIComponent(query)}`)
+            .then(res => res.json())
+            .then(data => {
+                const results = data.documents;
+                const container = document.getElementById('results');
+                container.innerHTML = '';
+
+                results.forEach(book => {
+                    const div = document.createElement('div');
+                    div.className = 'search-result';
+                    div.innerHTML = `
+                        <strong>${book.title}</strong><br>
+                        저자: ${book.authors.join(', ')}<br>
+                        출판사: ${book.publisher}
+                    `;
+                    div.onclick = () => {
+                        document.getElementById('bookTitle').value = book.title;
+                        document.getElementById('bookAuthor').value = book.authors.join(', ');
+                        document.getElementById('bookPublisher').value = book.publisher;
+                        document.getElementById('bookThumbnail').value = book.thumbnail;
+                    };
+                    container.appendChild(div);
+                });
+            });
+    }
+</script>
+
+</body>
+</html>
