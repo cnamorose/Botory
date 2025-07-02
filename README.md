@@ -1,10 +1,10 @@
 # Botory 
-A simple reading log application built with Java and Spring Boot.
+  
+**Botory** is a simple reading log management application built with Java and Spring Boot.  
+The name "Botory" is a combination of **"Book"** and **"Story"**.
 
-**Botory** is a personal reading log management system developed in Java.
-The name **Botory** is a combination of **"Book"** and **"Story"**.
-
-This project was created as part of a **Java Programming course for my major** and is designed to run exclusively in a local environment.
+This project was developed as part of a **Java Programming major course**,  
+and is intended for **local execution only**.
 
   
 ## Key Features
