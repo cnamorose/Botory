@@ -15,7 +15,18 @@ and is intended for **local execution only**.
 
     **Note**: This application currently uses an **H2 in-memory** database. This means all data is temporary and will be cleared when the application stops. A future update is planned to integrate a persistent database (e.g., MySQL, PostgreSQL).
 
-  
+
+## Preview
+
+### Login Page and Book Search, Reading Log
+
+<p align="center">
+  <img src="src/main/resources/static/images/image1.png" width="45%" />
+  <img src="src/main/resources/static/images/image2.png" width="45%" />
+  <img src="src/main/resources/static/images/image3.png" width="45%" />
+</p>
+
+
 ## Tech Stack
 - **Backend**: Java 23, Spring Boot
 - **Frontend**: HTML, Thymeleaf
