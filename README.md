@@ -6,6 +6,10 @@ The name "Botory" is a combination of **"Book"** and **"Story"**.
 This project was developed as part of a **Java Programming major course**,  
 and is intended for **local execution only**.
 
+<p >
+  <img src="src/main/resources/static/images/botory_ch2.png" width="20%" />
+</p>
+
   
 ## Key Features
 - **User Authentication**: Secure user registration and login functionality.
