@@ -13,6 +13,7 @@ This application was created as a project for a university Java programming cour
 
     **Note**: This application currently uses an **H2 in-memory** database. This means all data is temporary and will be cleared when the application stops. A future update is planned to integrate a persistent database (e.g., MySQL, PostgreSQL).
 
+  
 ## Tech Stack
 - **Backend**: Java 23, Spring Boot
 - **Frontend**: HTML, Thymeleaf
@@ -24,11 +25,14 @@ This application was created as a project for a university Java programming cour
 ## How to Run
 This project is intended for **local execution only** and is not configured for deployment.  
 
+  
 ### Prerequisites
 - Java 23 (or your project's specific version)
 - IntelliJ (or another IDE)
 - A valid Kakao REST API Key
 
+
+  
 ### Setup Instructions 
   
 1. Clone the repository
@@ -50,6 +54,7 @@ This project is intended for **local execution only** and is not configured for 
 
 4. Run the application using your IDE
 
+  
 ## Future Improvements
 
 Planned improvements for later versions include:
